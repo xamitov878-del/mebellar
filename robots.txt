@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mebellar-namangan.vercel.app/sitemap.xml

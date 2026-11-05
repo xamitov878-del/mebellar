@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Sarlavha va Tavsif -->
+  <title>Mebellar Namangan — zakazga mebel yasash | Mebelchi</title>
+  <meta name="description" content="Namanganda zakazga mebel yasash: oshxona, yotoqxona, mehmonxona va ofis mebellari. Individual o'lcham, bepul yetkazish va o'rnatish. Bepul konsultatsiya oling." />
+  
+  <!-- Google Search Console tasdiqlash -->
+  <meta name="google-site-verification" content="oJsOIf5q7nSgdlBex38RQ_sQENzg7Sr1zABfznLdt4E" />
+  
+  <!-- SEO Qoidalar -->
+  <link rel="canonical" href="https://mebellar-namangan.vercel.app/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Telegram / Instagram / Facebook uchun Open Graph teglari -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mebellar Namangan — zakazga mebel yasash | Mebelchi" />
+  <meta property="og:description" content="Oshxona, yotoqxona, mehmonxona va ofis mebellari. Namanganda bepul yetkazish va o'rnatish." />
+  <meta property="og:url" content="https://mebellar-namangan.vercel.app/" />
+  <meta property="og:image" content="https://mebellar-namangan.vercel.app/images/logo.svg" />
+
+  <!-- Favicon va Shriftlar -->
+  <link rel="icon" type="image/x-icon" href="./images/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Asosiy Stil -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google uchun Do'kon ma'lumotlari (Schema.org JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FurnitureStore",
+    "name": "Mebelchi",
+    "url": "https://mebellar-namangan.vercel.app/",
+    "telephone": "+998902224443",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Namangan shahar",
+      "addressLocality": "Namangan",
+      "addressCountry": "UZ"
+    },
+    "areaServed": "Namangan",
+    "openingHours": "Mo-Sa 09:00-19:00"
+  }
+  </script>
+</head>
+</head>
+<body>
+
+  <!-- ===================== 1. HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo">Mebel<span>chi</span></a>
+
+      <nav class="nav" id="nav">
+        <a href="#katalog" class="nav__link">Katalog</a>
+        <a href="#afzalliklar" class="nav__link">Afzalliklar</a>
+        <a href="#konsultatsiya" class="nav__link">Konsultatsiya</a>
+        <a href="#aloqa" class="nav__link">Aloqa</a>
+        <a href="#konsultatsiya" class="btn btn--gold nav__cta-mobile">Bog'lanish</a>
+      </nav>
+
+      <a href="#konsultatsiya" class="btn btn--gold header__cta">Bog'lanish</a>
+
+      <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== 2. HERO ===================== -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text reveal">
+          <p class="eyebrow">Hashamat · Qulaylik · Ishonch</p>
+          <h1 class="hero__title">
+            Uyingiz va ofisingiz uchun <span class="gold">hashamatli</span> mebellar
+          </h1>
+          <p class="hero__desc">
+            Mebelchi — zamonaviy dizayn, tabiiy materiallar va mukammal ishlov uyg'unligi.
+            Har bir buyum sizning makoningizga mos, o'lchamingizga aniq yasaladi.
+          </p>
+          <div class="hero__buttons">
+            <a href="#katalog" class="btn btn--gold">Katalog bilan tanishish</a>
+            <a href="#" id="heroContact" target="_blank" rel="noopener" class="btn btn--outline">Sotuvchi bilan bog'lanish</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>12+</strong><span>yillik tajriba</span></div>
+            <div class="stat"><strong>5000+</strong><span>mamnun mijoz</span></div>
+            <div class="stat"><strong>5 yil</strong><span>kafolat</span></div>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="placeholder placeholder--wood hero__image">
+            <span class="hero-photo"></span>
+          </div>
+          <div class="hero__badge">
+            <strong>Individual o'lcham</strong>
+            <span>Siz o'ylagandek, aynan sizniki</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 3. KATALOG (Firestore'dan yuklanadi) ===================== -->
+    <section class="section" id="katalog">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow eyebrow--dark">Katalog</p>
+          <h2 class="section__title">Har bir xona uchun mukammal yechim</h2>
+          <div class="gold-line"></div>
+        </div>
+
+        <!-- Kategoriya filtri -->
+        <div class="filters" id="filters">
+          <button class="filter active" data-cat="all">Barchasi</button>
+          <button class="filter" data-cat="Oshxona">Oshxona</button>
+          <button class="filter" data-cat="Yotoqxona">Yotoqxona</button>
+          <button class="filter" data-cat="Mehmonxona">Mehmonxona</button>
+          <button class="filter" data-cat="Ofis">Ofis</button>
+        </div>
+
+        <!-- Xabarlar: demo rejim / xato / yuklanmoqda -->
+        <p class="notice" id="notice" hidden></p>
+
+        <!-- Mahsulotlar shu yerga JS orqali chiziladi -->
+        <div class="products" id="products"></div>
+        <p class="empty" id="empty" hidden>Bu bo'limda hozircha mebel yo'q.</p>
+      </div>
+    </section>
+
+    <!-- ===================== 4. NEGA BIZ ===================== -->
+    <section class="section section--dark" id="afzalliklar">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Afzalliklar</p>
+          <h2 class="section__title section__title--light">Nega aynan Mebelchi?</h2>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="grid grid--4">
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.6-3.2A12 12 0 0112 3a12 12 0 01-8.6 3.8A12 12 0 003 12c0 5.2 3.4 9.6 9 11 5.6-1.4 9-5.8 9-11 0-1.7-.3-3.3-.4-4.2z"/></svg></div>
+            <h3>Sifat kafolati</h3>
+            <p>Barcha mahsulotlarga 5 yilgacha rasmiy kafolat beramiz. Faqat sertifikatlangan materiallar.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7zM7 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm11 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg></div>
+            <h3>Bepul yetkazib berish</h3>
+            <p>Buyurtmangizni ehtiyotkorlik bilan, manzilingizgacha mutlaqo bepul yetkazamiz.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.4 2.4-2.1-.6-.6-2.1z"/></svg></div>
+            <h3>Bepul o'rnatib berish</h3>
+            <p>Malakali ustalarimiz mebelni joyiga o'rnatib, sizga tayyor holda topshiradi.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13 7l4 4"/></svg></div>
+            <h3>Individual o'lcham</h3>
+            <p>Xonangiz o'lchami va didingizga mos, buyurtma asosida yasaymiz.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 5. CTA / FORMA ===================== -->
+    <section class="cta" id="konsultatsiya">
+      <div class="container">
+        <div class="cta__box reveal">
+          <div class="cta__text">
+            <p class="eyebrow">Konsultatsiya</p>
+            <h2 class="section__title section__title--light">
+              O'z o'lchamingiz bo'yicha <span class="gold">bepul konsultatsiya</span> oling
+            </h2>
+            <p>Raqamingizni qoldiring — mutaxassisimiz 15 daqiqa ichida qo'ng'iroq qilib, o'lchov, dizayn va narx bo'yicha maslahat beradi.</p>
+          </div>
+
+          <form class="form" id="consultation-form" novalidate>
+            <div class="form__group">
+              <label for="name">Ismingiz</label>
+              <input id="name" name="name" type="text" placeholder="Masalan: Aziz" required />
+              <small class="form__error" data-error-for="name"></small>
+            </div>
+            <div class="form__group">
+              <label for="phone">Telefon raqamingiz</label>
+              <input id="phone" name="phone" type="tel" placeholder="+998 90 222 44 43" required />
+              <small class="form__error" data-error-for="phone"></small>
+            </div>
+            <button type="submit" class="btn btn--gold btn--full" id="submitBtn">Bepul konsultatsiya olish</button>
+            <p class="form__success" id="formSuccess" hidden></p>
+            <p class="form__note">Ma'lumotlaringiz uchinchi shaxslarga berilmaydi.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== 6. FOOTER ===================== -->
+  <footer class="footer" id="aloqa">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#top" class="logo">Mebel<span>chi</span></a>
+        <p>Hashamatli va zamonaviy uy hamda ofis mebellari. Sifat, qulaylik va ishonch — bizning va'damiz.</p>
+        <div class="footer__social">
+          <a href="#" class="btn btn--outline btn--small">Telegram</a>
+          <a href="#" class="btn btn--outline btn--small">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <h4>Menyu</h4>
+        <ul>
+          <li><a href="#katalog">Katalog</a></li>
+          <li><a href="#afzalliklar">Afzalliklar</a></li>
+          <li><a href="#konsultatsiya">Konsultatsiya</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontaktlar</h4>
+        <ul>
+          <li class="item-kontakt"><span class="location-icon"></span> Namangan shahri</li>
+          <li class="item-kontakt"><span class="phone-icon"></span> <a href="tel:902224443">90 222 44 43</a></li>
+          <li class="item-kontakt"><span class="time-icon"></span> Dush–Shan: 09:00 – 19:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <span>© 2026 Mebelchi. Barcha huquqlar himoyalangan.</span>
+      <!-- Yashirin Admin tugmasi: deyarli ko'rinmaydi, ustiga olib borilganda bilinadi -->
+      <button type="button" class="admin-trigger" id="adminTrigger" aria-label="Admin">Admin</button>
+    </div>
+  </footer>
+
+
+  <!-- ===================== ADMIN: faqat admin kirganda ko'rinadigan panel tugmalari ===================== -->
+  <div class="adminbar" id="adminBar" hidden>
+    <span>● Admin rejimi</span>
+    <button type="button" id="openPanel">Panel</button>
+    <button type="button" id="logoutBtn">Chiqish</button>
+  </div>
+
+  <!-- ===================== ADMIN: KIRISH OYNASI ===================== -->
+  <div class="modal" id="loginModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box modal__box--small" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button type="button" class="modal__close" data-close aria-label="Yopish">×</button>
+      <h3 class="modal__title" id="loginTitle">Admin kirish</h3>
+      <form class="form" id="loginForm" novalidate>
+        <div class="form__group">
+          <label for="loginPassword">Parol</label>
+          <div class="input-wrap">
+            <input id="loginPassword" type="password" autocomplete="current-password" required />
+            <button type="button" class="eye" data-toggle-password aria-label="Parolni ko'rsatish" aria-pressed="false"><svg class="eye__show" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye__hide" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></button>
+          </div>
+          <small class="form__error" id="loginError"></small>
+        </div>
+        <button type="submit" class="btn btn--gold btn--full" id="loginBtn">Kirish</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================== ADMIN: PANEL ===================== -->
+  <div class="modal" id="panelModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+      <button type="button" class="modal__close" data-close aria-label="Yopish">×</button>
+      <h3 class="modal__title" id="panelTitle">Admin panel</h3>
+
+      <div class="tabs">
+        <button type="button" class="tab active" data-tab="addTab" id="addTabBtn">Mebel qo'shish</button>
+        <button type="button" class="tab" data-tab="passTab">Parolni o'zgartirish</button>
+      </div>
+
+      <!-- Tab 1: mahsulot qo'shish -->
+      <section class="tab-panel active" id="addTab">
+        <form class="form" id="productForm" novalidate>
+          <p class="edit-banner" id="editBanner" hidden>✏️ Tahrirlash rejimi: <strong id="editName"></strong></p>
+
+          <div class="form__group">
+            <label for="pName">Mebel nomi</label>
+            <input id="pName" type="text" placeholder="Masalan: Milano burchak divani" required />
+          </div>
+
+          <div class="form__group">
+              <label for="pCategory">Kategoriya</label>
+              <select id="pCategory" required>
+                <option value="Oshxona">Oshxona</option>
+                <option value="Yotoqxona">Yotoqxona</option>
+                <option value="Mehmonxona">Mehmonxona</option>
+                <option value="Ofis">Ofis</option>
+              </select>
+            </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label for="pWidth">Kengligi (sm)</label>
+              <input id="pWidth" type="number" min="1" step="any" inputmode="decimal" placeholder="240" required />
+            </div>
+            <div class="form__group">
+              <label for="pLength">Uzunligi (sm)</label>
+              <input id="pLength" type="number" min="1" step="any" inputmode="decimal" placeholder="95" required />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="pDesc">Tavsif (ixtiyoriy)</label>
+            <textarea id="pDesc" rows="3" maxlength="600" placeholder="Material, rang, qulayliklar haqida qisqacha..."></textarea>
+          </div>
+
+          <div class="form__group">
+            <label for="pFile">Rasmlar (1 tadan 3 tagacha)</label>
+            <input id="pFile" type="file" accept="image/*" multiple />
+            <small class="form__hint" id="imagesHint"></small>
+            <div class="thumbs" id="thumbs"></div>
+          </div>
+
+          <small class="form__error" id="productError"></small>
+          <button type="submit" class="btn btn--gold btn--full" id="productBtn" disabled>Mebelni saqlash</button>
+          <button type="button" class="btn btn--outline btn--full" id="cancelEditBtn" hidden>Tahrirlashni bekor qilish</button>
+        </form>
+      </section>
+
+      <!-- Tab 2: parolni o'zgartirish -->
+      <section class="tab-panel" id="passTab">
+        <form class="form" id="passForm" novalidate>
+          <div class="form__group">
+            <label for="oldPass">Joriy parol</label>
+            <div class="input-wrap">
+            <input id="oldPass" type="password" autocomplete="current-password" required />
+            <button type="button" class="eye" data-toggle-password aria-label="Parolni ko'rsatish" aria-pressed="false"><svg class="eye__show" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye__hide" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></button>
+          </div>
+          </div>
+          <div class="form__group">
+            <label for="newPass">Yangi parol (kamida 6 belgi)</label>
+            <div class="input-wrap">
+            <input id="newPass" type="password" autocomplete="new-password" required />
+            <button type="button" class="eye" data-toggle-password aria-label="Parolni ko'rsatish" aria-pressed="false"><svg class="eye__show" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye__hide" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></button>
+          </div>
+          </div>
+          <div class="form__group">
+            <label for="newPass2">Yangi parolni takrorlang</label>
+            <div class="input-wrap">
+            <input id="newPass2" type="password" autocomplete="new-password" required />
+            <button type="button" class="eye" data-toggle-password aria-label="Parolni ko'rsatish" aria-pressed="false"><svg class="eye__show" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye__hide" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></button>
+          </div>
+          </div>
+          <small class="form__error" id="passError"></small>
+          <button type="submit" class="btn btn--gold btn--full" id="passBtn">Parolni o'zgartirish</button>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== GALEREYA / SLAYDER (mebel rasmlari) ===================== -->
+  <div class="modal" id="galleryModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box modal__box--gallery" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+      <button type="button" class="modal__close" data-close aria-label="Yopish">×</button>
+
+      <div class="gallery-view">
+        <div class="slider" id="slider">
+          <div class="slider__track" id="sliderTrack"></div>
+          <button type="button" class="slider__nav slider__nav--prev" id="sliderPrev" aria-label="Oldingi rasm">‹</button>
+          <button type="button" class="slider__nav slider__nav--next" id="sliderNext" aria-label="Keyingi rasm">›</button>
+          <span class="slider__counter" id="sliderCounter"></span>
+        </div>
+        <div class="slider__thumbs" id="sliderThumbs"></div>
+      </div>
+
+      <div class="gallery-info">
+        <span class="gallery-info__cat" id="galleryCat"></span>
+        <h3 class="modal__title" id="galleryTitle"></h3>
+        <p class="gallery-info__size" id="gallerySize"></p>
+        <p class="gallery-info__desc" id="galleryDesc"></p>
+        <a class="btn btn--gold btn--full" id="galleryContact" href="#" target="_blank" rel="noopener">Sotuvchi bilan bog'lanish</a>
+        <a class="btn btn--outline btn--full" id="galleryGroup" href="#" target="_blank" rel="noopener">Guruhga qo'shilish</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Qisqa xabarlar (toast) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Firebase (compat versiya: index.html'ni ikki marta bosib ochganda ham ishlaydi) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <!-- Sozlamalar va asosiy dastur -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

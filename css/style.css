@@ -1,0 +1,1859 @@
+/* =========================================================
+   MEBELCHI — asosiy stil fayli
+   Tuzilishi:
+   1. O'zgaruvchilar (ranglar, shriftlar)
+   2. Reset va umumiy qoidalar
+   3. Qayta ishlatiladigan qismlar (tugma, sarlavha, kartochka)
+   4. Bo'limlar (header, hero, katalog, ... footer)
+   5. Animatsiya (reveal)
+   6. Moslashuvchanlik (planshet va telefon)
+   ========================================================= */
+
+
+/* ---------- 1. O'ZGARUVCHILAR ---------- */
+:root {
+  /* Ranglar */
+  --ink: #1b1b1d;
+  /* eng to'q qora */
+  --charcoal: #26262a;
+  /* kulrang-qora */
+  --graphite: #3a3a40;
+  /* to'q kulrang */
+  --gold: #c9a24b;
+  /* asosiy oltin */
+  --gold-light: #e3c77e;
+  /* och oltin (hover) */
+  --gold-dark: #a8832f;
+  /* to'q oltin (matn uchun) */
+  --wood: #8a5a3b;
+  /* yog'och */
+  --beige: #f4ede1;
+  /* bej (asosiy fon) */
+  --beige-dark: #e6dac6;
+  --white: #ffffff;
+
+  /* Shriftlar */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', Arial, sans-serif;
+
+  /* Boshqa */
+  --radius: 24px;
+  --header-h: 80px;
+  --transition: .3s ease;
+}
+
+
+/* ---------- 2. RESET VA UMUMIY QOIDALAR ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--beige);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/heroPhoto.png");
+  background-size: cover;
+  border-radius: 32px;
+  background-position: center;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* Sahifa kengligini cheklovchi konteyner */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+
+/* ---------- 3. QAYTA ISHLATILADIGAN QISMLAR ---------- */
+
+/* --- Tugmalar --- */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.btn--gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.btn--gold:hover {
+  background: var(--gold-light);
+}
+
+.btn--outline {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: transparent;
+}
+
+.btn--outline:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.btn--small {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.btn--full {
+  width: 100%;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+/* --- Kichik yuqori yozuv (Katalog, Afzalliklar ...) --- */
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.eyebrow--dark {
+  color: var(--gold-dark);
+}
+
+/* och fonda ishlatiladi */
+
+/* --- Bo'lim sarlavhasi --- */
+.section {
+  padding: 96px 0;
+}
+
+.section--dark {
+  background: var(--ink);
+  color: rgba(244, 237, 225, .75);
+}
+
+.section__head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+
+.section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.section__title--light {
+  color: var(--white);
+}
+
+.section__sub {
+  margin-top: 16px;
+  color: var(--graphite);
+}
+
+/* Oltin chiziq (bezak) */
+.gold-line {
+  height: 1px;
+  margin-top: 24px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* --- Ustunli setka --- */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- Rasm o'rnidagi rangli bloklar (haqiqiy rasm qo'yilgach kerak emas) --- */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  padding: 6px;
+}
+
+.placeholder--wood {
+  background: linear-gradient(135deg, #8a5a3b, #5a3a25);
+  color: rgba(255, 255, 255, .6);
+}
+
+.placeholder--beige {
+  background: linear-gradient(135deg, #e6dac6, #c9b79a);
+  color: rgba(58, 58, 64, .7);
+}
+
+.placeholder--dark {
+  background: linear-gradient(135deg, #3a3a40, #1b1b1d);
+  color: rgba(255, 255, 255, .6);
+}
+
+.placeholder--gold {
+  background: linear-gradient(135deg, #e3c77e, #a8832f);
+  color: rgba(27, 27, 29, .6);
+}
+
+
+/* ---------- 4. BO'LIMLAR ---------- */
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: rgba(27, 27, 29, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201, 162, 75, .2);
+  transition: var(--transition);
+}
+
+.header--scrolled {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .35);
+}
+
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  letter-spacing: .02em;
+  color: var(--white);
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav__link {
+  font-size: 14px;
+  color: rgba(244, 237, 225, .8);
+  transition: var(--transition);
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: var(--gold);
+}
+
+.header__cta {
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+.nav__cta-mobile {
+  display: none;
+}
+
+/* faqat telefonda ko'rinadi */
+
+/* Burger tugma (telefonda) */
+.burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.burger span {
+  width: 26px;
+  height: 2px;
+  background: var(--white);
+  transition: var(--transition);
+}
+
+/* Menyu ochiq bo'lganda burger "X" ga aylanadi */
+.burger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--header-h);
+  color: var(--white);
+  background:
+    radial-gradient(circle at 80% 20%, rgba(201, 162, 75, .18), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(138, 90, 59, .25), transparent 50%),
+    var(--ink);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5.5vw, 62px);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.hero__desc {
+  margin-top: 24px;
+  max-width: 520px;
+  font-size: 18px;
+  color: rgba(244, 237, 225, .75);
+}
+
+.hero__buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stats {
+  margin-top: 56px;
+  display: flex;
+  gap: 40px;
+}
+
+.stat strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 32px;
+  color: var(--gold);
+}
+
+.stat span {
+  font-size: 14px;
+  color: rgba(244, 237, 225, .6);
+}
+
+.hero__visual {
+  position: relative;
+}
+
+.hero__image {
+  aspect-ratio: 4 / 5;
+  border-radius: 32px;
+  border: 1px solid rgba(201, 162, 75, .3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .45);
+}
+
+.hero__badge {
+  position: absolute;
+  left: -24px;
+  bottom: -24px;
+  background: var(--beige);
+  color: var(--ink);
+  padding: 16px 24px;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .3);
+}
+
+.hero__badge strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 18px;
+}
+
+.hero__badge span {
+  font-size: 14px;
+  color: var(--graphite);
+}
+
+
+/* ===== KATALOG KARTOCHKALARI ===== */
+.card {
+  display: block;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, .15);
+}
+
+.card__img {
+  aspect-ratio: 4 / 5;
+  transition: transform .5s ease;
+}
+
+.card:hover .card__img {
+  transform: scale(1.04);
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card__body {
+  padding: 24px;
+  position: relative;
+  background: var(--white);
+}
+
+.card__body h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+}
+
+.card__body p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--graphite);
+}
+
+.card__link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold-dark);
+  transition: var(--transition);
+}
+
+.card:hover .card__link {
+  transform: translateX(4px);
+}
+
+
+/* ===== BIZ HAQIMIZDA ===== */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 96px;
+}
+
+.about__image {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  border: 1px solid rgba(201, 162, 75, .3);
+}
+
+.about__text p {
+  margin-top: 20px;
+}
+
+.about__text .section__title {
+  margin-top: 0;
+}
+
+
+/* ===== NEGA BIZ — afzallik kartochkalari ===== */
+.feature {
+  background: var(--charcoal);
+  border: 1px solid rgba(201, 162, 75, .15);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: var(--transition);
+}
+
+.feature:hover {
+  border-color: rgba(201, 162, 75, .6);
+  transform: translateY(-4px);
+}
+
+.feature__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(201, 162, 75, .15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.feature__icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.feature h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.feature p {
+  font-size: 14px;
+  color: rgba(244, 237, 225, .65);
+}
+
+
+/* ===== GALEREYA ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 16px;
+}
+
+.gallery__item {
+  border-radius: 18px;
+  transition: var(--transition);
+}
+
+.gallery__item:hover {
+  transform: scale(1.02);
+}
+
+.gallery__item--big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery__item--wide {
+  grid-column: span 2;
+}
+
+/* Haqiqiy <img> qo'yilsa, to'liq to'ldirsin */
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+
+/* ===== CTA / FORMA ===== */
+.cta {
+  padding: 96px 0;
+  background: linear-gradient(135deg, var(--ink), var(--charcoal), var(--ink));
+}
+
+.cta__box {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 56px;
+  border: 1px solid rgba(201, 162, 75, .3);
+  border-radius: 32px;
+  background: rgba(27, 27, 29, .6);
+  color: rgba(244, 237, 225, .7);
+}
+
+.cta__text p {
+  margin-top: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form__group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.form__group input {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--charcoal);
+  border: 1px solid var(--graphite);
+  border-radius: 14px;
+  color: var(--white);
+  outline: none;
+  transition: var(--transition);
+}
+
+.form__group input::placeholder {
+  color: rgba(244, 237, 225, .3);
+}
+
+.form__group input:focus {
+  border-color: var(--gold);
+}
+
+.form__group input.invalid {
+  border-color: #e5645a;
+}
+
+/* xato bo'lsa qizil */
+
+.form__error {
+  display: block;
+  min-height: 18px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #e5645a;
+}
+
+.form__success {
+  color: var(--gold);
+  font-size: 15px;
+}
+
+.form__note {
+  font-size: 12px;
+  color: rgba(244, 237, 225, .4);
+}
+
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--ink);
+  color: rgba(244, 237, 225, .7);
+  padding-top: 80px;
+  border-top: 1px solid rgba(201, 162, 75, .2);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.3fr;
+  gap: 40px;
+}
+
+.footer__brand p {
+  margin-top: 16px;
+  max-width: 360px;
+  font-size: 14px;
+}
+
+.footer__social {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.footer h4 {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.footer li {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.footer li a:hover {
+  color: var(--gold);
+}
+
+.footer__bottom {
+  margin-top: 56px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-top: 1px solid var(--graphite);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(244, 237, 225, .4);
+}
+
+
+/* ---------- 5. ANIMATSIYA: skroll qilganda paydo bo'lish ---------- */
+/* JS ishlasagina yashiriladi (js sinfi <html> ga qo'shiladi) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.js .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Foydalanuvchi animatsiyani o'chirgan bo'lsa */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* ---------- 6. MOSLASHUVCHANLIK ---------- */
+
+/* Planshet (<= 1024px) */
+@media (max-width: 1024px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__inner,
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    max-width: 480px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__brand {
+    grid-column: span 2;
+  }
+}
+
+/* Telefon (<= 768px) */
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  /* Menyu: burger orqali ochiladi */
+  .burger {
+    display: flex;
+  }
+
+  .header__cta {
+    display: none;
+  }
+
+  .nav {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 20px 24px;
+    background: var(--ink);
+    border-bottom: 1px solid rgba(201, 162, 75, .2);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+  }
+
+  .nav.open {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav__link {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 16px;
+  }
+
+  .nav__cta-mobile {
+    display: inline-block;
+    margin-top: 12px;
+  }
+
+  .hero__badge {
+    left: 12px;
+    bottom: -20px;
+  }
+
+  .stats {
+    gap: 24px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+  }
+
+  .cta__box {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+  }
+}
+
+/* Kichik telefon (<= 520px) */
+@media (max-width: 520px) {
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__brand {
+    grid-column: auto;
+  }
+
+  .hero__buttons .btn {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   7. KATALOG (Firestore), ADMIN PANEL, MODAL
+   ========================================================= */
+
+/* ---------- Kategoriya filtri ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filter {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(168, 131, 47, .5);
+  background: transparent;
+  color: var(--gold-dark);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter:hover {
+  background: rgba(201, 162, 75, .12);
+}
+
+.filter.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--gold);
+}
+
+/* ---------- Xabar (demo / xato) ---------- */
+.notice {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-size: 14px;
+  text-align: center;
+  background: rgba(201, 162, 75, .15);
+  border: 1px solid rgba(168, 131, 47, .4);
+  color: var(--graphite);
+}
+
+.notice--error {
+  background: rgba(229, 100, 90, .12);
+  border-color: rgba(229, 100, 90, .5);
+  color: #9c2f26;
+}
+
+.empty {
+  text-align: center;
+  color: var(--graphite);
+  padding: 40px 0;
+}
+
+/* ---------- Mebel kartochkalari ---------- */
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+  transition: var(--transition);
+  animation: fadeUp .5s ease both;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, .15);
+}
+
+.product__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--beige-dark);
+}
+
+.product__media img,
+.product__media .placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.product:hover .product__media img,
+.product:hover .product__media .placeholder {
+  transform: scale(1.05);
+}
+
+.product__cat {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(27, 27, 29, .85);
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.product__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  padding: 22px;
+}
+
+.product__title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.product__size {
+  font-size: 14px;
+  color: var(--graphite);
+}
+
+/* Aloqa tugmalari (narx o'rnida): sotuvchi + guruh */
+.product__actions {
+  margin-top: auto;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product__actions .btn {
+  padding: 13px 16px;
+  font-size: 14px;
+  border-radius: 14px;
+}
+
+.product .btn--outline {
+  border-color: var(--gold-dark);
+  color: var(--gold-dark);
+}
+
+/* oq kartochkada o'qilishi uchun */
+.product .btn--outline:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+/* Admin tugmalari (Tahrirlash + O'chirish) — faqat admin rejimida ko'rinadi */
+.product__admin {
+  display: none;
+  gap: 10px;
+}
+
+.is-admin .product__admin {
+  display: flex;
+}
+
+.product__admin button {
+  flex: 1;
+  padding: 11px;
+  border-radius: 14px;
+  background: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.product__edit {
+  border: 1px solid var(--gold-dark);
+  color: var(--gold-dark);
+}
+
+.product__edit:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.product__delete {
+  border: 1px solid #e5645a;
+  color: #c9453b;
+}
+
+.product__delete:hover {
+  background: #e5645a;
+  color: var(--white);
+}
+
+.product__delete:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* Kartochka bosiladigan (galereya ochiladi) */
+.product {
+  cursor: pointer;
+}
+
+.product__count {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(27, 27, 29, .85);
+  color: var(--beige);
+  font-size: 12px;
+}
+
+.product__desc {
+  font-size: 14px;
+  color: var(--graphite);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Yashirin Admin tugmasi (footer) ---------- */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-trigger {
+  background: none;
+  border: 0;
+  color: rgba(244, 237, 225, .18);
+  /* deyarli ko'rinmaydi */
+  font-size: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.admin-trigger:hover,
+.admin-trigger:focus-visible {
+  color: var(--gold);
+}
+
+/* ---------- Admin paneli (pastdagi tugmalar) ---------- */
+.adminbar {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--ink);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .4);
+  color: var(--gold);
+  font-size: 13px;
+}
+
+.adminbar[hidden] {
+  display: none;
+}
+
+.adminbar button {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 162, 75, .5);
+  background: transparent;
+  color: var(--beige);
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.adminbar button:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* ---------- Modal oynalar ---------- */
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .7);
+  backdrop-filter: blur(4px);
+}
+
+.modal__box {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 36px;
+  background: var(--ink);
+  border: 1px solid rgba(201, 162, 75, .35);
+  border-radius: 28px;
+  color: rgba(244, 237, 225, .8);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
+}
+
+.modal__box--small {
+  max-width: 400px;
+}
+
+.modal__title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--beige);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.modal__close:hover {
+  background: rgba(201, 162, 75, .2);
+  color: var(--gold);
+}
+
+/* ---------- Tablar ---------- */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--graphite);
+}
+
+.tab {
+  padding: 10px 16px;
+  margin-bottom: -1px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: rgba(244, 237, 225, .6);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tab:hover {
+  color: var(--gold-light);
+}
+
+.tab.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* ---------- Forma elementlari (modal ichida) ---------- */
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form__group select {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--charcoal);
+  border: 1px solid var(--graphite);
+  border-radius: 14px;
+  color: var(--white);
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.form__group select:focus {
+  border-color: var(--gold);
+}
+
+.form__group input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.form__group input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.form__group input[type="file"]::file-selector-button {
+  margin-right: 14px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.item-kontakt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.location-icon {
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/location.svg);
+}
+
+.phone-icon {
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/phone.svg);
+}
+
+.email-icon {
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/email.svg);
+}
+
+.time-icon {
+  background-size: 20px 20px;
+  display: inline-block;
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/time.svg);
+}
+
+.form__group input[type="file"]::file-selector-button:hover {
+  background: var(--gold-light);
+}
+
+/* ---------- Ko'p rasm yuklash: kichik rasmlar (thumbs) ---------- */
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.thumbs:empty {
+  display: none;
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--graphite);
+  background: var(--charcoal);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb--main {
+  border-color: var(--gold);
+}
+
+.thumb--uploading img {
+  opacity: .5;
+}
+
+.thumb__badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.thumb__remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(27, 27, 29, .85);
+  color: var(--white);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.thumb__remove:hover {
+  background: #e5645a;
+}
+
+.thumb__main-btn {
+  position: absolute;
+  left: 6px;
+  bottom: 8px;
+  padding: 3px 9px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(27, 27, 29, .85);
+  color: var(--gold-light);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.thumb__main-btn:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.thumb__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: rgba(0, 0, 0, .5);
+}
+
+.thumb__progress span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--gold);
+  transition: width .2s ease;
+}
+
+.thumb--done .thumb__progress {
+  display: none;
+}
+
+.thumb--error .thumb__progress {
+  display: none;
+}
+
+.thumb__msg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: rgba(27, 27, 29, .85);
+  color: #ff9d95;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 300;
+  transform: translate(-50%, 30px);
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: var(--ink);
+  border: 1px solid var(--gold);
+  color: var(--beige);
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ---------- Moslashuvchanlik (yangi qismlar) ---------- */
+@media (max-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .modal__box {
+    padding: 28px 20px;
+  }
+
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .adminbar {
+    left: 12px;
+    right: 12px;
+    justify-content: space-between;
+  }
+
+  .tab {
+    padding: 10px 10px;
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   8. PAROL KO'ZCHASI, TAVSIF, TAHRIRLASH, GALEREYA/SLAYDER
+   ========================================================= */
+
+/* ---------- Parolni ko'rsatish / yashirish ---------- */
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap input {
+  padding-right: 58px;
+}
+
+.eye {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(244, 237, 225, .55);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.eye:hover,
+.eye:focus-visible {
+  color: var(--gold);
+  background: rgba(201, 162, 75, .12);
+}
+
+.eye svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.eye .eye__hide {
+  display: none;
+}
+
+.eye.is-visible .eye__show {
+  display: none;
+}
+
+.eye.is-visible .eye__hide {
+  display: block;
+}
+
+/* ---------- Forma: tavsif, maslahat, tahrirlash banneri ---------- */
+.form__group textarea {
+  width: 100%;
+  min-height: 92px;
+  padding: 16px 20px;
+  background: var(--charcoal);
+  border: 1px solid var(--graphite);
+  border-radius: 14px;
+  color: var(--white);
+  font: inherit;
+  outline: none;
+  resize: vertical;
+  transition: var(--transition);
+}
+
+.form__group textarea::placeholder {
+  color: rgba(244, 237, 225, .3);
+}
+
+.form__group textarea:focus {
+  border-color: var(--gold);
+}
+
+.form__hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(244, 237, 225, .5);
+}
+
+.form__group input[type="file"]:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.edit-banner {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(201, 162, 75, .15);
+  border: 1px solid rgba(201, 162, 75, .4);
+  color: var(--gold-light);
+  font-size: 14px;
+}
+
+.edit-banner[hidden],
+.btn[hidden] {
+  display: none;
+}
+
+/* ---------- Galereya modali ---------- */
+.modal__box--gallery {
+  max-width: 1000px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.modal__box--gallery .modal__close {
+  z-index: 5;
+  background: rgba(27, 27, 29, .7);
+}
+
+.slider {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--charcoal);
+  touch-action: pan-y;
+}
+
+.slider__track {
+  display: flex;
+  height: 100%;
+  transition: transform .4s ease;
+}
+
+.slider__slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.slider__slide img,
+.slider__slide .placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slider__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(27, 27, 29, .75);
+  color: var(--gold);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider__nav:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.slider__nav--prev {
+  left: 12px;
+}
+
+.slider__nav--next {
+  right: 12px;
+}
+
+.slider__nav[hidden],
+.slider__counter[hidden] {
+  display: none;
+}
+
+.slider__counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(27, 27, 29, .8);
+  color: var(--beige);
+  font-size: 12px;
+}
+
+.slider__thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.slider__thumbs:empty {
+  display: none;
+}
+
+.slider__thumb {
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  background: none;
+  opacity: .55;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider__thumb:hover {
+  opacity: .85;
+}
+
+.slider__thumb.active {
+  border-color: var(--gold);
+  opacity: 1;
+}
+
+.gallery-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gallery-info__cat {
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(201, 162, 75, .15);
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.gallery-info .modal__title {
+  margin: 0;
+  padding-right: 36px;
+}
+
+.gallery-info__size {
+  font-size: 14px;
+}
+
+.gallery-info__desc {
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.gallery-info__desc:empty {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .modal__box--gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .slider__thumb {
+    width: 60px;
+    height: 60px;
+  }
+}
